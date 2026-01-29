@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesquisa - Check-in Online para Clínicas </title>
+    <title>Discovery - Check-in Online para Clínicas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -20,13 +20,7 @@
             --success: #10b981;
             --error: #ef4444;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'DM Sans', sans-serif;
             background: linear-gradient(135deg, #f8fafb 0%, #e8f4f8 100%);
@@ -35,19 +29,15 @@
             min-height: 100vh;
             padding: 2rem 1rem;
         }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
             animation: fadeIn 0.6s ease-out;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* Barra de Progresso */
         .progress-container {
             background: var(--surface);
             padding: 1.5rem 2rem;
@@ -58,7 +48,6 @@
             top: 1rem;
             z-index: 100;
         }
-
         .progress-label {
             display: flex;
             justify-content: space-between;
@@ -66,12 +55,10 @@
             font-size: 0.9rem;
             color: var(--text-light);
         }
-
         .progress-percentage {
             font-weight: 600;
             color: var(--accent);
         }
-
         .progress-bar-bg {
             width: 100%;
             height: 8px;
@@ -79,7 +66,6 @@
             border-radius: 10px;
             overflow: hidden;
         }
-
         .progress-bar-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--accent) 0%, var(--primary-light) 100%);
@@ -87,7 +73,6 @@
             transition: width 0.4s ease;
             width: 0%;
         }
-
         header {
             background: var(--surface);
             padding: 3rem 2.5rem;
@@ -98,7 +83,6 @@
             position: relative;
             overflow: hidden;
         }
-
         header::before {
             content: '';
             position: absolute;
@@ -110,7 +94,6 @@
             border-radius: 50%;
             transform: translate(30%, -30%);
         }
-
         h1 {
             font-family: 'Bricolage Grotesque', sans-serif;
             font-size: 2.5rem;
@@ -119,14 +102,12 @@
             margin-bottom: 0.75rem;
             position: relative;
         }
-
         .subtitle {
             font-size: 1.125rem;
             color: var(--text-light);
             font-weight: 400;
             margin-bottom: 1.5rem;
         }
-
         .objective {
             background: linear-gradient(135deg, rgba(0, 184, 169, 0.1) 0%, rgba(0, 184, 169, 0.05) 100%);
             padding: 1.25rem 1.5rem;
@@ -134,22 +115,14 @@
             font-size: 0.95rem;
             border-left: 3px solid var(--accent);
         }
-
-        .objective strong {
-            color: var(--primary);
-        }
-
+        .objective strong { color: var(--primary); }
         form {
             background: var(--surface);
             padding: 2.5rem;
             border-radius: 24px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-
-        .section {
-            margin-bottom: 3rem;
-        }
-
+        .section { margin-bottom: 3rem; }
         .section-title {
             font-family: 'Bricolage Grotesque', sans-serif;
             font-size: 1.5rem;
@@ -162,7 +135,6 @@
             align-items: center;
             gap: 0.75rem;
         }
-
         .section-number {
             background: var(--accent);
             color: white;
@@ -176,11 +148,7 @@
             font-weight: 600;
             padding: 0 0.5rem;
         }
-
-        .form-group {
-            margin-bottom: 1.75rem;
-        }
-
+        .form-group { margin-bottom: 1.75rem; }
         .question-label {
             display: block;
             font-weight: 500;
@@ -188,13 +156,11 @@
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
         }
-
         .question-number {
             color: var(--accent);
             font-weight: 600;
             margin-right: 0.5rem;
         }
-
         input[type="text"],
         input[type="email"],
         textarea {
@@ -207,44 +173,35 @@
             transition: all 0.3s ease;
             background: var(--bg);
         }
-
-        input:focus,
-        textarea:focus {
+        input:focus, textarea:focus {
             outline: none;
             border-color: var(--accent);
             background: white;
             box-shadow: 0 0 0 3px rgba(0, 184, 169, 0.1);
         }
-
         textarea {
             min-height: 100px;
             resize: vertical;
         }
-
         .required {
             color: var(--error);
             margin-left: 0.25rem;
         }
-
-        /* Estilos para Radio e Checkbox */
         .options-group {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
         }
-
         .option-item {
             position: relative;
             padding-left: 0;
         }
-
         .option-item input[type="radio"],
         .option-item input[type="checkbox"] {
             position: absolute;
             opacity: 0;
             cursor: pointer;
         }
-
         .option-item label {
             display: flex;
             align-items: flex-start;
@@ -259,7 +216,6 @@
             position: relative;
             padding-left: 3rem;
         }
-
         .option-item label:before {
             content: '';
             position: absolute;
@@ -272,33 +228,27 @@
             background: white;
             transition: all 0.3s ease;
         }
-
         .option-item input[type="radio"] + label:before {
             border-radius: 50%;
         }
-
         .option-item input[type="checkbox"] + label:before {
             border-radius: 4px;
         }
-
         .option-item label:hover {
             border-color: var(--accent);
             background: white;
             transform: translateX(4px);
         }
-
         .option-item input:checked + label {
             border-color: var(--accent);
             background: rgba(0, 184, 169, 0.05);
             font-weight: 500;
             color: var(--primary);
         }
-
         .option-item input:checked + label:before {
             border-color: var(--accent);
             background: var(--accent);
         }
-
         .option-item input[type="radio"]:checked + label:after {
             content: '';
             position: absolute;
@@ -310,7 +260,6 @@
             border-radius: 50%;
             background: white;
         }
-
         .option-item input[type="checkbox"]:checked + label:after {
             content: '✓';
             position: absolute;
@@ -321,43 +270,36 @@
             font-size: 14px;
             font-weight: bold;
         }
-
         .conditional-input {
             margin-top: 0.75rem;
             margin-left: 3rem;
             display: none;
         }
-
         .conditional-input.show {
             display: block;
             animation: slideDown 0.3s ease;
         }
-
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .conditional-input input,
         .conditional-input textarea {
             width: 100%;
             padding: 0.75rem 1rem;
         }
-
         .helper-text {
             font-size: 0.85rem;
             color: var(--text-light);
             margin-top: 0.5rem;
             font-style: italic;
         }
-
         .submit-section {
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 2px solid var(--border);
             text-align: center;
         }
-
         button[type="submit"] {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
@@ -373,7 +315,6 @@
             position: relative;
             overflow: hidden;
         }
-
         button[type="submit"]::before {
             content: '';
             position: absolute;
@@ -384,22 +325,18 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s ease;
         }
-
         button[type="submit"]:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(26, 77, 122, 0.35);
         }
-
         button[type="submit"]:hover::before {
             left: 100%;
         }
-
         button:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none !important;
         }
-
         .status-message {
             margin-top: 1.5rem;
             padding: 1rem 1.5rem;
@@ -408,24 +345,20 @@
             text-align: center;
             animation: slideDownMsg 0.3s ease-out;
         }
-
         @keyframes slideDownMsg {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .status-message.success {
             background: rgba(16, 185, 129, 0.1);
             color: var(--success);
             border: 2px solid var(--success);
         }
-
         .status-message.error {
             background: rgba(239, 68, 68, 0.1);
             color: var(--error);
             border: 2px solid var(--error);
         }
-
         .loading {
             display: inline-block;
             width: 18px;
@@ -436,11 +369,9 @@
             animation: spin 0.8s linear infinite;
             margin-right: 0.5rem;
         }
-
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
         .info-box {
             background: linear-gradient(135deg, rgba(26, 77, 122, 0.05) 0%, rgba(26, 77, 122, 0.02) 100%);
             padding: 1.5rem;
@@ -450,48 +381,28 @@
             font-size: 0.9rem;
             color: var(--text-light);
         }
-
         .info-box strong {
             color: var(--primary);
             display: block;
             margin-bottom: 0.5rem;
         }
-
         @media (max-width: 768px) {
-            body {
-                padding: 1rem 0.75rem;
-            }
-
-            header {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                font-size: 1.875rem;
-            }
-
-            form {
-                padding: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.25rem;
-            }
-
+            body { padding: 1rem 0.75rem; }
+            header { padding: 2rem 1.5rem; }
+            h1 { font-size: 1.875rem; }
+            form { padding: 1.5rem; }
+            .section-title { font-size: 1.25rem; }
             button[type="submit"] {
                 width: 100%;
                 padding: 1rem 2rem;
             }
-
             .option-item label {
                 padding: 0.75rem 1rem;
                 padding-left: 2.75rem;
             }
-
             .option-item label:hover {
                 transform: none;
             }
-
             .conditional-input {
                 margin-left: 1rem;
             }
@@ -502,7 +413,7 @@
     <div class="container">
         <header>
             <h1>Questionário de Discovery</h1>
-            <p class="subtitle">Sistema de Check-in Online para Clínicas de Diagnóstico - Versão Otimizada ⚡</p>
+            <p class="subtitle">Sistema de Check-in Online para Clínicas de Diagnóstico</p>
             <div class="objective">
                 <strong>Objetivo:</strong> Entender o fluxo atual de atendimento, identificar as principais dores e priorizar funcionalidades que realmente agregam valor. <strong>Tempo estimado: 5-7 minutos.</strong>
             </div>
@@ -525,7 +436,7 @@
             </div>
 
             <!-- Informações Básicas -->
-            <div class="section" data-section="1">
+            <div class="section">
                 <h2 class="section-title">
                     <span class="section-number">📍</span>
                     Informações Básicas
@@ -560,8 +471,8 @@
                 </div>
             </div>
 
-            <!-- Seção 1: Contexto -->
-            <div class="section" data-section="2">
+            <!-- Seção 1: Contexto da Clínica -->
+            <div class="section">
                 <h2 class="section-title">
                     <span class="section-number">1</span>
                     Contexto da Clínica
@@ -595,7 +506,7 @@
                         </div>
                     </div>
                     <div class="conditional-input" id="perfil_outro">
-                        <input type="text" name="perfil_clinica_outro" placeholder="Especifique o perfil da clínica...">
+                        <input type="text" name="perfil_clinica_outro" placeholder="Especifique o perfil...">
                     </div>
                 </div>
 
@@ -708,50 +619,757 @@
                 </div>
             </div>
 
-            <!-- Continue -->
+            <!-- Seção 2: Fluxo Atual -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    Fluxo Atual de Check-in
+                </h2>
+                
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">6.</span>
+                        Descreva brevemente o passo a passo desde quando o paciente chega até ser chamado para o exame
+                    </label>
+                    <textarea name="fluxo_atual" placeholder="Ex: Paciente chega → pega senha → aguarda chamar → apresenta documentos → assina termos → aguarda ser chamado para exame..."></textarea>
+                    <p class="helper-text">Opcional, mas muito útil para entendermos seu processo atual</p>
+                </div>
 
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">7.</span>
+                        Quanto tempo em média o paciente espera na recepção antes de ser liberado para o exame?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="tempo_espera" value="ate_5min" id="tempo1">
+                            <label for="tempo1">Até 5 minutos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="tempo_espera" value="5_10min" id="tempo2">
+                            <label for="tempo2">5 a 10 minutos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="tempo_espera" value="10_20min" id="tempo3">
+                            <label for="tempo3">10 a 20 minutos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="tempo_espera" value="20_30min" id="tempo4">
+                            <label for="tempo4">20 a 30 minutos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="tempo_espera" value="mais_30min" id="tempo5">
+                            <label for="tempo5">Mais de 30 minutos</label>
+                        </div>
+                    </div>
+                </div>
 
-<!-- 
-    FORMULÁRIO OTIMIZADO - Versão Resumida
-    
-    Este arquivo contém as principais otimizações de UX:
-    - Barra de progresso
-    - Múltipla escolha nas perguntas principais
-    - Checkboxes para respostas múltiplas
-    - Visual moderno e responsivo
-    
-    Para o formulário COMPLETO com TODAS as 38 perguntas otimizadas,
-    consulte o arquivo OTIMIZACOES_UX_FORMULARIO.md que contém
-    o código detalhado de cada transformação.
-    
-    Esta versão demonstra o conceito e pode ser expandida facilmente.
--->
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">8.</span>
+                        O que mais consome tempo da recepcionista? (pode marcar várias)
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="consome_cadastro" value="sim" id="cons1">
+                            <label for="cons1">Cadastro de dados do paciente no sistema</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="consome_documentos" value="sim" id="cons2">
+                            <label for="cons2">Verificação de documentos (RG, carteirinha, pedido médico)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="consome_termos" value="sim" id="cons3">
+                            <label for="cons3">Explicar e coletar assinatura em termos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="consome_convenio" value="sim" id="cons4">
+                            <label for="cons4">Validação de convênio/autorização</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="consome_pagamento" value="sim" id="cons5">
+                            <label for="cons5">Processamento de pagamento</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="consome_triagem" value="sim" id="cons6">
+                            <label for="cons6">Aplicar questionário de triagem</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="consome_duvidas" value="sim" id="cons7">
+                            <label for="cons7">Responder dúvidas do paciente sobre preparo/exame</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="consome_telefone" value="sim" id="cons8">
+                            <label for="cons8">Atender telefone durante o atendimento presencial</label>
+                        </div>
+                    </div>
+                </div>
 
-<!-- O restante das seções seguem o mesmo padrão mostrado -->
-<!-- Veja OTIMIZACOES_UX_FORMULARIO.md para o código completo -->
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">9.</span>
+                        Existem horários de maior fluxo? (pode marcar várias)
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="pico_manha_cedo" value="sim" id="pico1">
+                            <label for="pico1">Manhã cedo (7h-9h) - pacientes em jejum</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="pico_meio_manha" value="sim" id="pico2">
+                            <label for="pico2">Meio da manhã (9h-11h)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="pico_almoco" value="sim" id="pico3">
+                            <label for="pico3">Horário de almoço (12h-14h)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="pico_tarde" value="sim" id="pico4">
+                            <label for="pico4">Final da tarde (17h-19h) - pós trabalho</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="pico_sabado" value="sim" id="pico5">
+                            <label for="pico5">Sábados de manhã</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="pico_constante" value="sim" id="pico6">
+                            <label for="pico6">Fluxo constante o dia todo</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">10.</span>
+                        Já aconteceu de pacientes desistirem devido ao tempo de espera na recepção?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="desistencia_espera" value="sim_frequente" id="desist1">
+                            <label for="desist1">Sim, frequentemente (várias vezes por semana)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="desistencia_espera" value="sim_ocasional" id="desist2">
+                            <label for="desist2">Sim, ocasionalmente (algumas vezes por mês)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="desistencia_espera" value="raramente" id="desist3">
+                            <label for="desist3">Raramente (1-2 vezes por mês)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="desistencia_espera" value="nunca" id="desist4">
+                            <label for="desist4">Nunca aconteceu</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 3: Documentos e Termos -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    Documentos e Termos
+                </h2>
+                
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">11.</span>
+                        Quais documentos o paciente precisa apresentar? (pode marcar várias)
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="doc_rg" value="sim" id="doc1">
+                            <label for="doc1">RG ou CNH</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="doc_carteirinha" value="sim" id="doc2">
+                            <label for="doc2">Carteirinha do convênio</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="doc_pedido" value="sim" id="doc3">
+                            <label for="doc3">Pedido médico</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="doc_sus" value="sim" id="doc4">
+                            <label for="doc4">Cartão SUS</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="doc_guia" value="sim" id="doc5">
+                            <label for="doc5">Guia de autorização</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">12.</span>
+                        Quais termos o paciente precisa assinar? (pode marcar várias)
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="termo_lgpd" value="sim" id="termo1">
+                            <label for="termo1">Termo LGPD (proteção de dados)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="termo_consentimento" value="sim" id="termo2">
+                            <label for="termo2">Termo de consentimento para exame</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="termo_responsabilidade" value="sim" id="termo3">
+                            <label for="termo3">Termo de responsabilidade</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="termo_pagamento" value="sim" id="termo4">
+                            <label for="termo4">Termo de compromisso de pagamento</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">13.</span>
+                        Os termos variam por tipo de exame?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="termos_variam" value="sim" id="var1">
+                            <label for="var1">Sim, cada exame tem termos específicos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="termos_variam" value="alguns" id="var2">
+                            <label for="var2">Alguns exames têm termos específicos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="termos_variam" value="nao" id="var3">
+                            <label for="var3">Não, os termos são sempre os mesmos</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">14.</span>
+                        Como é feita a coleta de assinatura hoje?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="coleta_assinatura" value="papel" id="ass1">
+                            <label for="ass1">Papel impresso</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="coleta_assinatura" value="tablet" id="ass2">
+                            <label for="ass2">Tablet/iPad com caneta</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="coleta_assinatura" value="assinatura_digital" id="ass3">
+                            <label for="ass3">Assinatura digital certificada</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="coleta_assinatura" value="misto" id="ass4">
+                            <label for="ass4">Misto (papel + digital)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 4: Principais Dores -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    Principais Dores e Problemas
+                </h2>
+                
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">15.</span>
+                        Qual é a maior reclamação dos pacientes? (pode marcar várias)
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="rec_tempo_espera" value="sim" id="rec1">
+                            <label for="rec1">Tempo de espera muito longo</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="rec_fila" value="sim" id="rec2">
+                            <label for="rec2">Fila confusa / desorganizada</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="rec_repeticao" value="sim" id="rec3">
+                            <label for="rec3">Ter que repetir informações várias vezes</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="rec_burocracia" value="sim" id="rec4">
+                            <label for="rec4">Burocracia excessiva</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="rec_privacidade" value="sim" id="rec5">
+                            <label for="rec5">Falta de privacidade</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">16.</span>
+                        Qual é a maior dificuldade da equipe da recepção? (pode marcar várias)
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="dif_volume" value="sim" id="dif1">
+                            <label for="dif1">Volume alto de pacientes</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="dif_sistema" value="sim" id="dif2">
+                            <label for="dif2">Sistema lento/complicado</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="dif_telefone" value="sim" id="dif3">
+                            <label for="dif3">Interrupções por telefone</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="dif_convenio" value="sim" id="dif4">
+                            <label for="dif4">Problemas com convênios</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="dif_documentos" value="sim" id="dif5">
+                            <label for="dif5">Pacientes sem documentos corretos</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">17.</span>
+                        O que você mudaria no processo atual se pudesse?
+                    </label>
+                    <textarea name="mudaria_processo" placeholder="Descreva brevemente a principal mudança que gostaria de fazer..."></textarea>
+                </div>
+            </div>
+
+            <!-- Seção 5: Perfil dos Pacientes -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    Perfil dos Pacientes
+                </h2>
+                
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">18.</span>
+                        Qual a faixa etária predominante? (pode marcar várias)
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="idade_jovem" value="sim" id="idade1">
+                            <label for="idade1">18-30 anos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="idade_adulto" value="sim" id="idade2">
+                            <label for="idade2">31-50 anos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="idade_meia" value="sim" id="idade3">
+                            <label for="idade3">51-65 anos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="idade_idoso" value="sim" id="idade4">
+                            <label for="idade4">65+ anos</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">19.</span>
+                        Nível de familiaridade com tecnologia dos pacientes
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="familiaridade_tech" value="alta" id="tech1">
+                            <label for="tech1">Alta - maioria usa smartphone facilmente</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="familiaridade_tech" value="media" id="tech2">
+                            <label for="tech2">Média - usa básico do smartphone</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="familiaridade_tech" value="baixa" id="tech3">
+                            <label for="tech3">Baixa - maioria idosos com dificuldade</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="familiaridade_tech" value="misto" id="tech4">
+                            <label for="tech4">Misto - bem variado</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">20.</span>
+                        Os pacientes costumam chegar:
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="pontualidade" value="muita_antecedencia" id="pont1">
+                            <label for="pont1">Com muita antecedência (30+ min)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="pontualidade" value="antecedencia" id="pont2">
+                            <label for="pont2">Com antecedência (10-30 min)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="pontualidade" value="horario_exato" id="pont3">
+                            <label for="pont3">No horário exato</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="pontualidade" value="atrasados" id="pont4">
+                            <label for="pont4">Geralmente atrasados</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 6: Infraestrutura -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">6</span>
+                    Infraestrutura e Tecnologia
+                </h2>
+                
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">21.</span>
+                        Qual sistema de gestão vocês usam?
+                    </label>
+                    <input type="text" name="sistema_gestao" placeholder="Ex: MV, Tasy, Philips, sistema próprio...">
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">22.</span>
+                        Esse sistema tem API ou permite integração?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="sistema_api" value="sim" id="api1">
+                            <label for="api1">Sim</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="sistema_api" value="nao" id="api2">
+                            <label for="api2">Não</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="sistema_api" value="nao_sei" id="api3">
+                            <label for="api3">Não sei</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">23.</span>
+                        Existe Wi-Fi disponível para os pacientes?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="wifi" value="sim" id="wifi1">
+                            <label for="wifi1">Sim</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="wifi" value="nao" id="wifi2">
+                            <label for="wifi2">Não</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">24.</span>
+                        Vocês têm totem ou tablet disponível na clínica?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="totems" value="nao" id="tot1">
+                            <label for="tot1">Não temos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="totems" value="1_2" id="tot2">
+                            <label for="tot2">1-2 equipamentos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="totems" value="3_5" id="tot3">
+                            <label for="tot3">3-5 equipamentos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="totems" value="mais_5" id="tot4">
+                            <label for="tot4">Mais de 5 equipamentos</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">25.</span>
+                        Como é enviado o lembrete de agendamento? (pode marcar várias)
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="lembrete_sms" value="sim" id="lemb1">
+                            <label for="lemb1">SMS</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="lembrete_whats" value="sim" id="lemb2">
+                            <label for="lemb2">WhatsApp</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="lembrete_email" value="sim" id="lemb3">
+                            <label for="lemb3">E-mail</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="lembrete_ligacao" value="sim" id="lemb4">
+                            <label for="lemb4">Ligação telefônica</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="lembrete_nao" value="sim" id="lemb5">
+                            <label for="lemb5">Não enviamos lembrete</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 7: Prioridades -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">7</span>
+                    Prioridades e Expectativas
+                </h2>
+                
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">26.</span>
+                        Se você pudesse resolver apenas UMA dor hoje, qual seria?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="prioridade_principal" value="tempo_espera" id="prio1">
+                            <label for="prio1">Reduzir tempo de espera na recepção</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="prioridade_principal" value="liberar_recepcionistas" id="prio2">
+                            <label for="prio2">Liberar recepcionistas para outras tarefas</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="prioridade_principal" value="experiencia_paciente" id="prio3">
+                            <label for="prio3">Melhorar experiência do paciente</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="prioridade_principal" value="reduzir_erros" id="prio4">
+                            <label for="prio4">Reduzir erros de cadastro</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="prioridade_principal" value="agilizar_convenios" id="prio5">
+                            <label for="prio5">Agilizar validação de convênios</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="prioridade_principal" value="lgpd" id="prio6">
+                            <label for="prio6">Conformidade LGPD / segurança de dados</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">27.</span>
+                        Vocês preferem check-in via:
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="preferencia_checkin" value="celular" id="pref1">
+                            <label for="pref1">Celular do paciente (antes de chegar)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="preferencia_checkin" value="totem" id="pref2">
+                            <label for="pref2">Totem na clínica</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="preferencia_checkin" value="ambos" id="pref3">
+                            <label for="pref3">Ambos (celular + totem)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="preferencia_checkin" value="nao_sei" id="pref4">
+                            <label for="pref4">Não sei ainda</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">28.</span>
+                        O check-in deveria ser:
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="checkin_obrigatorio" value="obrigatorio" id="obr1">
+                            <label for="obr1">Obrigatório para todos</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="checkin_obrigatorio" value="opcional" id="obr2">
+                            <label for="obr2">Opcional (paciente escolhe)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="checkin_obrigatorio" value="depende" id="obr3">
+                            <label for="obr3">Depende do tipo de exame</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">29.</span>
+                        Há alguma funcionalidade essencial que não mencionamos?
+                    </label>
+                    <textarea name="funcionalidade_essencial" placeholder="Descreva se houver algo importante que não foi abordado..."></textarea>
+                    <p class="helper-text">Opcional</p>
+                </div>
+            </div>
+
+            <!-- Seção 8: Compliance -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="section-number">8</span>
+                    Compliance e Segurança
+                </h2>
+                
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">30.</span>
+                        A clínica está adequada à LGPD?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="lgpd" value="sim" id="lgpd1">
+                            <label for="lgpd1">Sim, totalmente</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="lgpd" value="parcial" id="lgpd2">
+                            <label for="lgpd2">Parcialmente</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="lgpd" value="nao" id="lgpd3">
+                            <label for="lgpd3">Não</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="lgpd" value="nao_sei" id="lgpd4">
+                            <label for="lgpd4">Não sei</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">31.</span>
+                        Como são armazenados os termos assinados hoje?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="armazenamento_termos" value="papel_arquivo" id="arm1">
+                            <label for="arm1">Papel em arquivo físico</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="armazenamento_termos" value="digitalizado" id="arm2">
+                            <label for="arm2">Digitalizado/escaneado</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="armazenamento_termos" value="sistema" id="arm3">
+                            <label for="arm3">No sistema de gestão</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="armazenamento_termos" value="nuvem" id="arm4">
+                            <label for="arm4">Em nuvem/storage externo</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="armazenamento_termos" value="misto" id="arm5">
+                            <label for="arm5">Misto (papel + digital)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label">
+                        <span class="question-number">32.</span>
+                        Há necessidade de auditoria ou rastreabilidade das ações?
+                    </label>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="auditoria" value="sim" id="aud1">
+                            <label for="aud1">Sim, é essencial</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="auditoria" value="desejavel" id="aud2">
+                            <label for="aud2">Seria desejável</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="auditoria" value="nao" id="aud3">
+                            <label for="aud3">Não é necessário</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit">
+                    Enviar Respostas
+                </button>
+                <div id="statusMessage"></div>
+            </div>
+        </form>
+    </div>
 
 <script>
-// Script de progresso, salvamento automático e interatividade
 const form = document.getElementById('discoveryForm');
 const progressBar = document.getElementById('progressBar');
 const progressText = document.getElementById('progressText');
+
+// ============================================================================
+// ⚠️ ATENÇÃO: CONFIGURE A URL DO GOOGLE APPS SCRIPT AQUI! ⚠️
+// ============================================================================
+// Substitua 'SUA_URL_DO_GOOGLE_APPS_SCRIPT_AQUI' pela URL real que você 
+// copiou do Google Apps Script (termina com /exec)
+// Exemplo: 'https://script.google.com/macros/s/AKfycbxXXXXXXXXXXXXXXXXXXXX/exec'
+// ============================================================================
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_wwat-cOSrz5DNm9XnqdMMytU1oiNV-XrBk9-BRlrd5PqboRucb2pyBrQk2MmR_FE-A/exec';
+// ============================================================================
 
 // Atualiza barra de progresso
 function updateProgress() {
-    const inputs = form.querySelectorAll('input[type="radio"], input[type="checkbox"], input[type="text"], input[type="email"], textarea');
-    const filled = Array.from(inputs).filter(input => {
-        if (input.type === 'radio' || input.type === 'checkbox') {
-            return input.checked;
-        }
-        return input.value.trim() !== '';
-    }).length;
+    const allInputs = form.querySelectorAll('input[type="radio"], input[type="checkbox"], input[type="text"], input[type="email"], textarea');
+    const requiredInputs = form.querySelectorAll('input[required], textarea[required]');
     
-    const percentage = Math.round((filled / inputs.length) * 100);
+    let filledCount = 0;
+    
+    allInputs.forEach(input => {
+        if (input.type === 'radio') {
+            const radioGroup = form.querySelectorAll(`input[name="${input.name}"]`);
+            const isChecked = Array.from(radioGroup).some(r => r.checked);
+            if (isChecked && !input.dataset.counted) {
+                radioGroup.forEach(r => r.dataset.counted = 'true');
+                filledCount++;
+            }
+        } else if (input.type === 'checkbox') {
+            if (input.checked) {
+                filledCount++;
+            }
+        } else if (input.value.trim() !== '') {
+            filledCount++;
+        }
+    });
+    
+    const totalInputs = allInputs.length;
+    const percentage = Math.round((filledCount / totalInputs) * 100);
+    
     progressBar.style.width = percentage + '%';
     progressText.textContent = percentage + '% completo';
     
-    // Salva no localStorage
     saveProgress();
 }
 
@@ -760,7 +1378,15 @@ function saveProgress() {
     const formData = new FormData(form);
     const data = {};
     for (let [key, value] of formData.entries()) {
-        data[key] = value;
+        if (data[key]) {
+            if (Array.isArray(data[key])) {
+                data[key].push(value);
+            } else {
+                data[key] = [data[key], value];
+            }
+        } else {
+            data[key] = value;
+        }
     }
     localStorage.setItem('discovery_progress', JSON.stringify(data));
 }
@@ -771,15 +1397,20 @@ function loadProgress() {
     if (saved) {
         const data = JSON.parse(saved);
         Object.keys(data).forEach(key => {
-            const input = form.querySelector(`[name="${key}"]`);
-            if (input) {
-                if (input.type === 'radio' || input.type === 'checkbox') {
-                    const specificInput = form.querySelector(`[name="${key}"][value="${data[key]}"]`);
-                    if (specificInput) specificInput.checked = true;
+            const values = Array.isArray(data[key]) ? data[key] : [data[key]];
+            values.forEach(value => {
+                const input = form.querySelector(`[name="${key}"][value="${value}"]`);
+                if (input) {
+                    if (input.type === 'radio' || input.type === 'checkbox') {
+                        input.checked = true;
+                    }
                 } else {
-                    input.value = data[key];
+                    const textInput = form.querySelector(`[name="${key}"]`);
+                    if (textInput && (textInput.type === 'text' || textInput.type === 'email' || textInput.tagName === 'TEXTAREA')) {
+                        textInput.value = value;
+                    }
                 }
-            }
+            });
         });
         updateProgress();
     }
@@ -795,7 +1426,8 @@ document.addEventListener('change', (e) => {
                 target.classList.add('show');
             } else {
                 target.classList.remove('show');
-                target.querySelector('input, textarea').value = '';
+                const inputs = target.querySelectorAll('input, textarea');
+                inputs.forEach(input => input.value = '');
             }
         }
     }
@@ -809,13 +1441,28 @@ form.addEventListener('submit', async (e) => {
     const submitBtn = form.querySelector('button[type="submit"]');
     const statusDiv = document.getElementById('statusMessage');
     
+    // Validação da URL
+    if (SCRIPT_URL === 'SUA_URL_DO_GOOGLE_APPS_SCRIPT_AQUI') {
+        statusDiv.innerHTML = '<div class="status-message error">⚠️ Configure a URL do Google Apps Script primeiro! Veja as instruções no código.</div>';
+        return;
+    }
+    
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="loading"></span>Enviando...';
+    statusDiv.innerHTML = '';
     
     const formData = new FormData(form);
     const data = {};
     for (let [key, value] of formData.entries()) {
-        data[key] = value;
+        if (data[key]) {
+            if (Array.isArray(data[key])) {
+                data[key].push(value);
+            } else {
+                data[key] = [data[key], value];
+            }
+        } else {
+            data[key] = value;
+        }
     }
     data.timestamp = new Date().toISOString();
     
@@ -830,15 +1477,21 @@ form.addEventListener('submit', async (e) => {
         statusDiv.innerHTML = '<div class="status-message success">✅ Respostas enviadas com sucesso! Obrigado pela participação.</div>';
         form.reset();
         localStorage.removeItem('discovery_progress');
+        updateProgress();
         window.scrollTo({top: 0, behavior: 'smooth'});
         
     } catch (error) {
+        console.error('Erro:', error);
         statusDiv.innerHTML = '<div class="status-message error">❌ Erro ao enviar. Por favor, tente novamente.</div>';
     } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Enviar Respostas';
     }
 });
+
+// Atualiza progresso em tempo real
+form.addEventListener('input', updateProgress);
+form.addEventListener('change', updateProgress);
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
@@ -847,13 +1500,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-            <div class="submit-section">
-                <button type="submit">
-                    Enviar Respostas
-                </button>
-                <div id="statusMessage"></div>
-            </div>
-        </form>
-    </div>
 </body>
 </html>
