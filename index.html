@@ -1742,16 +1742,13 @@ form.addEventListener('submit', async (e) => {
     const submitBtn = form.querySelector('button[type="submit"]');
     const statusDiv = document.getElementById('statusMessage');
     
-    // Validação da URL
-    if (SCRIPT_URL === 'SUA_URL_DO_GOOGLE_APPS_SCRIPT_AQUI') {
-        statusDiv.innerHTML = '<div class="status-message error">⚠️ Configure a URL do Google Apps Script primeiro! Veja as instruções no código.</div>';
-        return;
-    }
-    
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="loading"></span>Enviando...';
     statusDiv.innerHTML = '';
     
+    // ========================================================================
+    // CORREÇÃO: Coletar TODOS os campos corretamente (incluindo checkboxes)
+    // ========================================================================
     const data = {};
     
     // Coletar campos de texto, email, textarea
@@ -1770,7 +1767,7 @@ form.addEventListener('submit', async (e) => {
         }
     });
     
-    // Coletar checkboxes - AQUI ESTÁ A CORREÇÃO!
+    // Coletar checkboxes - CORRIGIDO!
     const checkboxes = form.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         if (checkbox.name && checkbox.checked) {
@@ -1780,6 +1777,8 @@ form.addEventListener('submit', async (e) => {
     
     data.timestamp = new Date().toISOString();
     
+    console.log('📤 Enviando dados:', data);
+    
     try {
         const response = await fetch(SCRIPT_URL, {
             method: 'POST',
@@ -1788,20 +1787,7 @@ form.addEventListener('submit', async (e) => {
             body: JSON.stringify(data)
         });
         
-        // Mostrar página de agradecimento
-        document.querySelector('.container').style.display = 'none';
-        document.getElementById('thankYouPage').style.display = 'block';
-        localStorage.removeItem('discovery_progress');
-        window.scrollTo({top: 0, behavior: 'smooth'});
-        
-    } catch (error) {
-        console.error('Erro:', error);
-        statusDiv.innerHTML = '<div class="status-message error">❌ Erro ao enviar. Por favor, tente novamente.</div>';
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Enviar Respostas';
-    }
-});
+        console.log('✅ Dados enviados com sucesso!');
         
         // Mostrar página de agradecimento
         document.querySelector('.container').style.display = 'none';
@@ -1810,9 +1796,8 @@ form.addEventListener('submit', async (e) => {
         window.scrollTo({top: 0, behavior: 'smooth'});
         
     } catch (error) {
-        console.error('Erro:', error);
+        console.error('❌ Erro ao enviar:', error);
         statusDiv.innerHTML = '<div class="status-message error">❌ Erro ao enviar. Por favor, tente novamente.</div>';
-    } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Enviar Respostas';
     }
