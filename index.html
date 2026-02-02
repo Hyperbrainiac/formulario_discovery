@@ -1752,19 +1752,32 @@ form.addEventListener('submit', async (e) => {
     submitBtn.innerHTML = '<span class="loading"></span>Enviando...';
     statusDiv.innerHTML = '';
     
-    const formData = new FormData(form);
     const data = {};
-    for (let [key, value] of formData.entries()) {
-        if (data[key]) {
-            if (Array.isArray(data[key])) {
-                data[key].push(value);
-            } else {
-                data[key] = [data[key], value];
-            }
-        } else {
-            data[key] = value;
+    
+    // Coletar campos de texto, email, textarea
+    const textInputs = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
+    textInputs.forEach(input => {
+        if (input.name) {
+            data[input.name] = input.value;
         }
-    }
+    });
+    
+    // Coletar radio buttons
+    const radios = form.querySelectorAll('input[type="radio"]');
+    radios.forEach(radio => {
+        if (radio.checked && radio.name) {
+            data[radio.name] = radio.value;
+        }
+    });
+    
+    // Coletar checkboxes - AQUI ESTÁ A CORREÇÃO!
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        if (checkbox.name && checkbox.checked) {
+            data[checkbox.name] = 'sim';
+        }
+    });
+    
     data.timestamp = new Date().toISOString();
     
     try {
@@ -1774,6 +1787,21 @@ form.addEventListener('submit', async (e) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
         });
+        
+        // Mostrar página de agradecimento
+        document.querySelector('.container').style.display = 'none';
+        document.getElementById('thankYouPage').style.display = 'block';
+        localStorage.removeItem('discovery_progress');
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        
+    } catch (error) {
+        console.error('Erro:', error);
+        statusDiv.innerHTML = '<div class="status-message error">❌ Erro ao enviar. Por favor, tente novamente.</div>';
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Enviar Respostas';
+    }
+});
         
         // Mostrar página de agradecimento
         document.querySelector('.container').style.display = 'none';
