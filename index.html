@@ -407,15 +407,156 @@
                 margin-left: 1rem;
             }
         }
+        .brand {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(26, 77, 122, 0.2);
+        }
+        .intro-text {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .intro-text strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 184, 169, 0.1) 0%, rgba(0, 184, 169, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin: 1.5rem 0;
+        }
+        .highlight-box h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.125rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        .highlight-box p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .benefit-item {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .benefit-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        .benefit-item .icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .benefit-item h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .benefit-item p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+        .time-estimate {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+        .time-estimate::before {
+            content: '⏱️';
+            font-size: 1.25rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Pesquisa de Discoberta de oportunidade de  melhorias</h1>
-            <p class="subtitle">Sistema de Check-in Online para pacientes de Clínicas de Diagnóstico</p>
-            <div class="objective">
-                <strong>Objetivo:</strong> Entender o fluxo atual de atendimento, identificar as principais dores e priorizar funcionalidades que realmente agregam valor. <strong>Tempo estimado: 3-5 minutos.</strong>
+            <div class="brand">ZSCAN EVO</div>
+            
+            <h1>Self Check-in para Clínicas</h1>
+            <p class="subtitle">Como o check-in online da aviação, mas para sua clínica</p>
+            
+            <p class="intro-text">
+                <strong>Olá, parceiro ZSCAN EVO!</strong> 👋
+            </p>
+            
+            <p class="intro-text">
+                Estamos desenvolvendo uma <strong>solução de self check-in</strong> que vai revolucionar 
+                a experiência dos pacientes na sua clínica — assim como o check-in online transformou 
+                a aviação.
+            </p>
+            
+            <div class="highlight-box">
+                <h3>🎯 O que queremos resolver:</h3>
+                <p>✅ <strong>Eliminar filas na recepção</strong> — pacientes fazem check-in pelo celular antes de chegar</p>
+                <p>✅ <strong>Automatizar assinaturas de documentos</strong> — termos assinados digitalmente, sem papel</p>
+                <p>✅ <strong>Reduzir gargalos no atendimento</strong> — recepcionistas focam em casos complexos</p>
+                <p>✅ <strong>Melhorar a experiência do paciente</strong> — processo rápido, moderno e sem burocracia</p>
+            </div>
+            
+            <p class="intro-text">
+                <strong>Precisamos da sua ajuda!</strong> Este questionário vai nos ajudar a entender 
+                o fluxo atual da sua clínica e identificar exatamente onde podemos agregar mais valor.
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="icon">📱</div>
+                    <h4>Check-in pelo Celular</h4>
+                    <p>Paciente chega pronto para o exame</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">✍️</div>
+                    <h4>Assinatura Digital</h4>
+                    <p>Sem papelada, tudo no sistema</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">⚡</div>
+                    <h4>Recepção Ágil</h4>
+                    <p>Menos tempo de espera</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">😊</div>
+                    <h4>Melhor Experiência</h4>
+                    <p>Pacientes mais satisfeitos</p>
+                </div>
+            </div>
+            
+            <div class="time-estimate">
+                Tempo estimado: 5-7 minutos • Respostas salvas automaticamente
             </div>
         </header>
 
