@@ -499,6 +499,166 @@
             content: '⏱️';
             font-size: 1.25rem;
         }
+        /* Página de Agradecimento */
+        #thankYouPage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f8fafb 0%, #e8f4f8 100%);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+        .thank-you-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            animation: thankYouFadeIn 0.6s ease-out;
+        }
+        @keyframes thankYouFadeIn {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .success-animation {
+            margin-bottom: 2rem;
+        }
+        .checkmark-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--success) 0%, #34d399 100%);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.5s ease-out;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .checkmark {
+            width: 50px;
+            height: 50px;
+            border-right: 5px solid white;
+            border-bottom: 5px solid white;
+            transform: rotate(45deg);
+            animation: checkmarkDraw 0.3s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        @keyframes checkmarkDraw {
+            to { opacity: 1; }
+        }
+        .thank-you-title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.6s ease-out 0.2s backwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .thank-you-message {
+            font-size: 1.125rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            animation: slideUp 0.6s ease-out 0.3s backwards;
+        }
+        .thank-you-message strong {
+            color: var(--success);
+            font-weight: 600;
+        }
+        .thank-you-box {
+            background: linear-gradient(135deg, rgba(0, 184, 169, 0.1) 0%, rgba(0, 184, 169, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 2rem;
+            text-align: left;
+            animation: slideUp 0.6s ease-out 0.4s backwards;
+        }
+        .thank-you-box h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .thank-you-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .thank-you-box li {
+            font-size: 1rem;
+            color: var(--text);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .thank-you-box li:last-child {
+            border-bottom: none;
+        }
+        .thank-you-contact {
+            background: rgba(26, 77, 122, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            animation: slideUp 0.6s ease-out 0.5s backwards;
+        }
+        .thank-you-contact p {
+            margin: 0.5rem 0;
+            color: var(--text);
+            font-size: 1rem;
+        }
+        .thank-you-contact strong {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        .close-button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(26, 77, 122, 0.25);
+            animation: slideUp 0.6s ease-out 0.6s backwards;
+        }
+        .close-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(26, 77, 122, 0.35);
+        }
+        .close-hint {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 1rem;
+            font-style: italic;
+            animation: slideUp 0.6s ease-out 0.7s backwards;
+        }
+        @media (max-width: 768px) {
+            .thank-you-container { padding: 2rem 1.5rem; }
+            .thank-you-title { font-size: 1.875rem; }
+            .checkmark-circle { width: 80px; height: 80px; }
+            .checkmark { width: 40px; height: 40px; }
+            .close-button { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -1615,10 +1775,10 @@ form.addEventListener('submit', async (e) => {
             body: JSON.stringify(data)
         });
         
-        statusDiv.innerHTML = '<div class="status-message success">✅ Respostas enviadas com sucesso! Obrigado pela participação.</div>';
-        form.reset();
+        // Mostrar página de agradecimento
+        document.querySelector('.container').style.display = 'none';
+        document.getElementById('thankYouPage').style.display = 'block';
         localStorage.removeItem('discovery_progress');
-        updateProgress();
         window.scrollTo({top: 0, behavior: 'smooth'});
         
     } catch (error) {
@@ -1640,6 +1800,45 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProgress();
 });
 </script>
-
+<!-- Página de Agradecimento -->
+    <div id="thankYouPage" style="display: none;">
+        <div class="thank-you-container">
+            <div class="success-animation">
+                <div class="checkmark-circle">
+                    <div class="checkmark"></div>
+                </div>
+            </div>
+            
+            <h1 class="thank-you-title">Obrigado pela sua participação! 🎉</h1>
+            
+            <p class="thank-you-message">
+                Suas respostas foram <strong>enviadas com sucesso</strong> e são extremamente valiosas 
+                para desenvolvermos a melhor solução de self check-in para sua clínica.
+            </p>
+            
+            <div class="thank-you-box">
+                <h3>📊 Próximos Passos:</h3>
+                <ul>
+                    <li>✅ Analisaremos todas as respostas coletadas</li>
+                    <li>✅ Identificaremos os pontos de maior impacto</li>
+                    <li>✅ Desenvolveremos funcionalidades sob medida</li>
+                    <li>✅ Você receberá atualizações sobre o projeto</li>
+                </ul>
+            </div>
+            
+            <div class="thank-you-contact">
+                <p><strong>ZSCAN EVO</strong> agradece sua confiança!</p>
+                <p>Em breve entraremos em contato com novidades.</p>
+            </div>
+            
+            <button type="button" class="close-button" onclick="window.close()">
+                Fechar esta Página
+            </button>
+            
+            <p class="close-hint">
+                Você pode fechar esta aba agora ou clique no botão acima
+            </p>
+        </div>
+    </div>
 </body>
 </html>
