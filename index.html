@@ -1653,13 +1653,11 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycT3LHKpFQtzy0zDThF
 
 // Atualiza barra de progresso
 function updateProgress() {
-    // Total de perguntas no formulário (32 perguntas + 4 campos básicos = 36)
-    const totalPerguntas = 36;
+    // 4 básicos + 17 radios + 9 checkboxes = 30 perguntas para 100%
+    const totalPerguntas = 30;
     let perguntasRespondidas = 0;
     
-    // ========================================================================
-    // 1. CAMPOS BÁSICOS (4 perguntas)
-    // ========================================================================
+    // 1. CAMPOS BÁSICOS (4)
     const camposBasicos = ['nome_clinica', 'nome_respondente', 'cargo', 'email'];
     camposBasicos.forEach(name => {
         const campo = form.querySelector(`[name="${name}"]`);
@@ -1668,9 +1666,7 @@ function updateProgress() {
         }
     });
     
-    // ========================================================================
-    // 2. RADIO BUTTONS - Contar apenas grupos únicos
-    // ========================================================================
+    // 2. RADIO BUTTONS - grupos únicos (17)
     const radioGroups = {};
     const radios = form.querySelectorAll('input[type="radio"]');
     radios.forEach(radio => {
@@ -1683,9 +1679,7 @@ function updateProgress() {
     });
     perguntasRespondidas += Object.values(radioGroups).filter(Boolean).length;
     
-    // ========================================================================
-    // 3. CHECKBOX GROUPS - Contar grupos únicos (não checkboxes individuais)
-    // ========================================================================
+    // 3. CHECKBOX GROUPS - grupos únicos (9)
     const checkboxGroups = {
         'horario': ['horario_comercial', 'horario_estendido', 'sabado', 'domingo', 'walkin'],
         'consome': ['consome_cadastro', 'consome_documentos', 'consome_termos', 'consome_convenio', 'consome_pagamento', 'consome_triagem', 'consome_duvidas', 'consome_telefone'],
@@ -1709,23 +1703,15 @@ function updateProgress() {
         }
     });
     
-    // ========================================================================
-    // 4. TEXTAREA (campos de texto livre)
-    // ========================================================================
-    const textareas = form.querySelectorAll('textarea');
-    textareas.forEach(textarea => {
-        if (textarea.value.trim() !== '') {
-            perguntasRespondidas++;
-        }
-    });
-    
-    // ========================================================================
-    // 5. CALCULAR PORCENTAGEM
-    // ========================================================================
-    const percentage = Math.round((perguntasRespondidas / totalPerguntas) * 100);
+    // 4. CALCULAR PORCENTAGEM
+    const percentage = Math.min(100, Math.round((perguntasRespondidas / totalPerguntas) * 100));
     
     progressBar.style.width = percentage + '%';
     progressText.textContent = percentage + '% completo';
+    
+    saveProgress();
+}
+
     
     saveProgress();
 }
