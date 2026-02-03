@@ -1871,6 +1871,22 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProgress();
     updateProgress();
 });
+    // ============================================================================
+// Função para fechar ou voltar - funciona em todos os casos
+// ============================================================================
+function fecharOuVoltar() {
+    // Opção 1: Tentar fechar a janela (funciona em popups)
+    window.close();
+    
+    // Opção 2: Se não fechou, aguarda e volta ao início
+    setTimeout(function() {
+        // Limpa progresso salvo
+        localStorage.removeItem('discovery_progress');
+        
+        // Volta para a página do formulário (limpa)
+        window.location.href = window.location.href.split('?')[0].split('#')[0];
+    }, 300);
+}
 </script>
 <!-- Página de Agradecimento -->
     <div id="thankYouPage" style="display: none;">
@@ -1903,9 +1919,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Em breve entraremos em contato com novidades.</p>
             </div>
             
-            <button type="button" class="close-button" onclick="window.close()">
-                Fechar esta Página
-            </button>
+           <button type="button" class="close-button" onclick="fecharOuVoltar()">
+    Fechar / Voltar ao Início
+</button>
             
             <p class="close-hint">
                 Você pode fechar esta aba agora ou clique no botão acima
