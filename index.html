@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesquisa  - Check-in Online para Clínicas</title>
+    <title>Pesquisa - Check-in Online para Clínicas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -499,7 +499,6 @@
             content: '⏱️';
             font-size: 1.25rem;
         }
-        /* Página de Agradecimento */
         #thankYouPage {
             position: fixed;
             top: 0;
@@ -679,7 +678,6 @@
                 Estamos desenvolvendo uma <strong>solução de self check-in</strong> que vai revolucionar 
                 a experiência dos pacientes na sua clínica — assim como o check-in online transformou 
                 a aviação.
-               
             </p>
             
             <div class="highlight-box">
@@ -1629,31 +1627,56 @@
         </form>
     </div>
 
+    <!-- Página de Agradecimento -->
+    <div id="thankYouPage" style="display: none;">
+        <div class="thank-you-container">
+            <div class="success-animation">
+                <div class="checkmark-circle">
+                    <div class="checkmark"></div>
+                </div>
+            </div>
+            
+            <h1 class="thank-you-title">Obrigado pela sua participação! 🎉</h1>
+            
+            <p class="thank-you-message">
+                Suas respostas foram <strong>enviadas com sucesso</strong> e são extremamente valiosas 
+                para desenvolvermos a melhor solução de self check-in para sua clínica.
+            </p>
+            
+            <div class="thank-you-box">
+                <h3>📊 Próximos Passos:</h3>
+                <ul>
+                    <li>✅ Analisaremos todas as respostas coletadas</li>
+                    <li>✅ Identificaremos os pontos de maior impacto</li>
+                    <li>✅ Desenvolveremos funcionalidades sob medida</li>
+                    <li>✅ Você receberá atualizações sobre o projeto</li>
+                </ul>
+            </div>
+            
+            <div class="thank-you-contact">
+                <p><strong>ZSCAN EVO</strong> agradece sua confiança!</p>
+                <p>Em breve entraremos em contato com novidades.</p>
+            </div>
+            
+            <button type="button" class="close-button" onclick="fecharOuVoltar()">
+                Fechar / Voltar ao Início
+            </button>
+            
+            <p class="close-hint">
+                Você pode fechar esta aba agora ou clique no botão acima
+            </p>
+        </div>
+    </div>
+
 <script>
 const form = document.getElementById('discoveryForm');
 const progressBar = document.getElementById('progressBar');
 const progressText = document.getElementById('progressText');
 
-// ============================================================================
-// ⚠️ ATENÇÃO: CONFIGURE A URL DO GOOGLE APPS SCRIPT AQUI! ⚠️
-// ============================================================================
-// Substitua 'SUA_URL_DO_GOOGLE_APPS_SCRIPT_AQUI' pela URL real que você 
-// copiou do Google Apps Script (termina com /exec)
-// Exemplo: 'https://script.google.com/macros/s/AKfycbxXXXXXXXXXXXXXXXXXXXX/exec'
-// ============================================================================
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycT3LHKpFQtzy0zDThFk_OC0JLun7d4rWuHlbdcpRqg843WXkCohwAurDSGHOmBTR_0g/exec';
-// ============================================================================
-
-// Atualiza barra de progresso
-// ============================================================================
-// FUNÇÃO updateProgress() CORRIGIDA
-// ============================================================================
-// Cole esta função NO LUGAR da função updateProgress() antiga
-// ============================================================================
 
 // Atualiza barra de progresso
 function updateProgress() {
-    // 4 básicos + 17 radios + 9 checkboxes = 30 perguntas para 100%
     const totalPerguntas = 30;
     let perguntasRespondidas = 0;
     
@@ -1712,9 +1735,6 @@ function updateProgress() {
     saveProgress();
 }
 
-// ============================================================================
-// FIM DA FUNÇÃO - Não copie nada abaixo desta linha
-// ============================================================================
 // Salva progresso localmente
 function saveProgress() {
     const formData = new FormData(form);
@@ -1787,9 +1807,6 @@ form.addEventListener('submit', async (e) => {
     submitBtn.innerHTML = '<span class="loading"></span>Enviando...';
     statusDiv.innerHTML = '';
     
-    // ========================================================================
-    // CORREÇÃO: Coletar TODOS os campos corretamente (incluindo checkboxes)
-    // ========================================================================
     const data = {};
     
     // Coletar campos de texto, email, textarea
@@ -1808,7 +1825,7 @@ form.addEventListener('submit', async (e) => {
         }
     });
     
-    // Coletar checkboxes - CORRIGIDO!
+    // Coletar checkboxes
     const checkboxes = form.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         if (checkbox.name && checkbox.checked) {
@@ -1848,67 +1865,20 @@ form.addEventListener('submit', async (e) => {
 form.addEventListener('input', updateProgress);
 form.addEventListener('change', updateProgress);
 
+// Função para fechar ou voltar
+function fecharOuVoltar() {
+    window.close();
+    setTimeout(function() {
+        localStorage.removeItem('discovery_progress');
+        window.location.href = window.location.href.split('?')[0].split('#')[0];
+    }, 300);
+}
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     loadProgress();
     updateProgress();
 });
-    // ============================================================================
-// Função para fechar ou voltar - funciona em todos os casos
-// ============================================================================
-function fecharOuVoltar() {
-    // Opção 1: Tentar fechar a janela (funciona em popups)
-    window.close();
-    
-    // Opção 2: Se não fechou, aguarda e volta ao início
-    setTimeout(function() {
-        // Limpa progresso salvo
-        localStorage.removeItem('discovery_progress');
-        
-        // Volta para a página do formulário (limpa)
-        window.location.href = window.location.href.split('?')[0].split('#')[0];
-    }, 300);
-}
 </script>
-<!-- Página de Agradecimento -->
-    <div id="thankYouPage" style="display: none;">
-        <div class="thank-you-container">
-            <div class="success-animation">
-                <div class="checkmark-circle">
-                    <div class="checkmark"></div>
-                </div>
-            </div>
-            
-            <h1 class="thank-you-title">Obrigado pela sua participação! 🎉</h1>
-            
-            <p class="thank-you-message">
-                Suas respostas foram <strong>enviadas com sucesso</strong> e são extremamente valiosas 
-                para desenvolvermos a melhor solução de self check-in para sua clínica.
-            </p>
-            
-            <div class="thank-you-box">
-                <h3>📊 Próximos Passos:</h3>
-                <ul>
-                    <li>✅ Analisaremos todas as respostas coletadas</li>
-                    <li>✅ Identificaremos os pontos de maior impacto</li>
-                    <li>✅ Desenvolveremos funcionalidades sob medida</li>
-                    <li>✅ Você receberá atualizações sobre o projeto</li>
-                </ul>
-            </div>
-            
-            <div class="thank-you-contact">
-                <p><strong>ZSCAN EVO</strong> agradece sua confiança!</p>
-                <p>Em breve entraremos em contato com novidades.</p>
-            </div>
-            
-           <button type="button" class="close-button" onclick="fecharOuVoltar()">
-    Fechar / Voltar ao Início
-</button>
-            
-            <p class="close-hint">
-                Você pode fechar esta aba agora ou clique no botão acima
-            </p>
-        </div>
-    </div>
 </body>
 </html>
